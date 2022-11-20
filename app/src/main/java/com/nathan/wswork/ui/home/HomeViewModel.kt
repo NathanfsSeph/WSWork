@@ -1,4 +1,4 @@
-package com.nathan.wswork.ui.main
+package com.nathan.wswork.ui.home
 
 import androidx.lifecycle.ViewModel
 
