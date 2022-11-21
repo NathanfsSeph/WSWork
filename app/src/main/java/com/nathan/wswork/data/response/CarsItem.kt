@@ -1,6 +1,5 @@
-package com.nathan.wswork.ui.model
+package com.nathan.wswork.data.response
 
-import android.os.Parcel
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
@@ -17,3 +16,5 @@ data class CarsItem(
     val timestamp_cadastro: Int,
     val valor_fipe: Double
 ) : Parcelable
+
+// É pra ser um response (CarsItemBodyResponse)

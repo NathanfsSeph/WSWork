@@ -1,6 +1,7 @@
 package com.nathan.wswork
 
 import android.app.Application
+import com.nathan.wswork.presentation.di.dataModules
 import com.nathan.wswork.presentation.di.presentationModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -12,7 +13,8 @@ class MainApp : Application() {
         startKoin {
             androidContext(this@MainApp)
             modules(
-                presentationModules
+                presentationModules,
+                dataModules
             )
         }
     }
