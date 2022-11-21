@@ -8,15 +8,16 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.nathan.wswork.R
+import com.nathan.wswork.data.response.CarsItem
 import com.nathan.wswork.databinding.FragmentHomeBinding
-import com.nathan.wswork.ui.model.CarsItem
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var binding: FragmentHomeBinding
 
+
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
-        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_home, container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container,false)
         return binding.root
     }
 
@@ -45,6 +46,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 )
 
                 findNavController().navigate(action)
+            }
+
+            buttonOpenUserLayout.setOnClickListener{
+                findNavController().navigate(R.id.action_homeFragment_to_userFragment)
             }
         }
     }
