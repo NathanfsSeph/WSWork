@@ -28,7 +28,7 @@
             app:destination="@id/mainFragment" />
         <argument
             android:name="car"
-            app:argType="com.nathan.wswork.data.response.CarsItem" />
+            app:argType="com.nathan.wswork.data.response.CarsItemResponse" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"

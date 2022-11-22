@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.nathan.wswork.R
-import com.nathan.wswork.data.response.CarsItem
+import com.nathan.wswork.data.response.CarsItemResponse
 import com.nathan.wswork.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -31,7 +31,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         with(binding) {
             button.setOnClickListener {
                 val action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(
-                    car = CarsItem(
+                    car = CarsItemResponse(
                         id = 1,
                         marca_id = 1,
                         marca_nome = "TOYOTA",

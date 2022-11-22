@@ -8,7 +8,7 @@ import org.koin.dsl.module
 
 val presentationModules = module {
     viewModel {
-        HomeViewModel()
+        HomeViewModel(get())
         DetailsViewModel()
         UserViewModel(get())
     }
