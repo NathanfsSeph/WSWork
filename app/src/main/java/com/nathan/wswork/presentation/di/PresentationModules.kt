@@ -7,9 +7,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val presentationModules = module {
-    viewModel {
-        HomeViewModel(get())
-        DetailsViewModel()
-        UserViewModel(get())
-    }
+    viewModel { HomeViewModel(get()) }
+    viewModel { DetailsViewModel() }
+    viewModel { UserViewModel(get()) }
 }

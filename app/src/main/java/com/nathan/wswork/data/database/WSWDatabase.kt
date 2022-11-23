@@ -1,15 +1,18 @@
 package com.nathan.wswork.data.database
 
 import android.content.Context
+import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.nathan.wswork.data.model.Car
 import com.nathan.wswork.data.model.User
 
-@Database(entities = [User::class], version = 1)
+@Database(entities = [User::class, Car::class], version = 1)
 abstract class WSWDatabase : RoomDatabase(){
 
     abstract fun userDao() : UserDao
+    abstract fun carDao() : CarDao
 
     companion object {
         @Volatile

@@ -10,10 +10,13 @@ import androidx.navigation.fragment.findNavController
 import com.nathan.wswork.R
 import com.nathan.wswork.data.response.CarsItemResponse
 import com.nathan.wswork.databinding.FragmentHomeBinding
+import com.nathan.wswork.ui.home.HomeViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var binding: FragmentHomeBinding
+    private val viewModel: HomeViewModel by sharedViewModel()
 
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
@@ -24,6 +27,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpClickListeners()
+        viewModel.hello()
 
     }
 

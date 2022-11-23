@@ -2,12 +2,14 @@ package com.nathan.wswork.data.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity
 data class Car (
     val ano: Int,
     val combustivel: String,
     val cor: String,
+    @PrimaryKey
     val id: Int,
     val marca_id: Int,
     val marca_nome: String,
