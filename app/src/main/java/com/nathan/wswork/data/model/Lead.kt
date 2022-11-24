@@ -15,7 +15,5 @@ data class Lead (
     @ColumnInfo(name = "user_name")
     var userName: String,
     @ColumnInfo(name = "user_phone")
-    val userPhone: String,
-    @ColumnInfo(name = "car_time_stamp_registration")
-    val carTimeStampRegistration: Int
+    val userPhone: String
 )

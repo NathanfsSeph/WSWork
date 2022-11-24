@@ -13,7 +13,8 @@ val dataModules = module {
     factory <WSWRepository> {
         WSWRepositoryImpl(
             userDao = get<WSWDatabase>().userDao(),
-            carDao = get<WSWDatabase>().carDao()
+            carDao = get<WSWDatabase>().carDao(),
+            leadDao = get<WSWDatabase>().leadDao()
         )
     }
 }

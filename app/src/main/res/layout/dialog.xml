@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_dialog"
+        android:padding="32dp">
+
+        <TextView
+            android:id="@+id/dialog_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_dialog"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/dialog_cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="cancelar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/dialog_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_text_view" />
+
+        <Button
+            android:id="@+id/dialog_i_want_it_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eu quero"
+            app:layout_constraintBottom_toBottomOf="@+id/dialog_cancel_button"
+            app:layout_constraintEnd_toEndOf="@+id/dialog_text_view"
+            app:layout_constraintTop_toTopOf="@+id/dialog_cancel_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

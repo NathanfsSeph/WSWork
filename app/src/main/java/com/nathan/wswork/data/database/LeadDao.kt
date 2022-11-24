@@ -4,16 +4,17 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.nathan.wswork.data.model.Car
 import com.nathan.wswork.data.model.Lead
+import retrofit2.Call
+import retrofit2.http.GET
 
 @Dao
-interface CarDao {
+interface LeadDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(car: Car)
+    fun insert(lead: Lead)
 
-    @Query("SELECT * FROM Car")
-    fun get(): List<Car>
+    @Query("SELECT * FROM Lead")
+    fun get(): List<Lead>
 
 }

@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.nathan.wswork.data.APIService
 import com.nathan.wswork.data.database.WSWRepository
 import com.nathan.wswork.data.model.Car
+import com.nathan.wswork.data.model.Lead
 import com.nathan.wswork.data.response.CarsBodyResponse
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -75,6 +76,18 @@ class HomeViewModel(
                 }
 
             })
+    }
+
+    fun saveLead(lead: Lead){
+
+        try {
+            viewModelScope.launch {
+                repository.insertLead(lead)
+            }
+        } catch (exception : Exception) {
+            println("Something went wrong")
+        }
+
     }
 
 }
