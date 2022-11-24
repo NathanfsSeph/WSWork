@@ -64,8 +64,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCarListener {
 
             homeToolbarUserImageView.setOnClickListener{
                 if(!isLogged) {
-                    //Chamar tela de login
-                    findNavController().navigate(R.id.action_homeFragment_to_userFragment)
+                    findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
                 } else {
                     val nomedousuário = "Nome Do Usuário"
                     Toast.makeText(requireContext(), "Você está logado como ${nomedousuário}", Toast.LENGTH_SHORT).show()

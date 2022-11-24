@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.nathan.wswork.R
 import com.nathan.wswork.data.database.UserDao
 import com.nathan.wswork.data.database.WSWDatabase
@@ -58,9 +59,9 @@ class UserFragment : Fragment(R.layout.fragment_user) {
                             Toast.LENGTH_SHORT
                         ).show()
 
-                        if(result)
-                            activity?.onBackPressed()
-
+                        if(result) {
+                            findNavController().navigate(R.id.action_userFragment_to_homeFragment)
+                        }
                     }
 
                 }
