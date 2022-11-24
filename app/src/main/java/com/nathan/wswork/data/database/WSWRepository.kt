@@ -8,5 +8,5 @@ interface WSWRepository {
 
     suspend fun insertCar(car : Car)
 
-    suspend fun getAllCars() : List<Car>
+    suspend fun getCars() : List<Car>
 }

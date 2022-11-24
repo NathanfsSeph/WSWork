@@ -24,7 +24,6 @@ class HomeViewModel(
         _homeScreenState.value = HomeScreenState()
     }
 
-
     fun getAllCars(){
         APIService.service.getCars()
             .enqueue(object : Callback<CarsBodyResponse> {
@@ -66,19 +65,16 @@ class HomeViewModel(
                 override fun onFailure(call: Call<CarsBodyResponse>, t: Throwable) {
 
                     viewModelScope.launch {
-//                        val recoveredCars = repository.getAllCars()
+                        val recoveredCars = repository.getCars()
 
-//                        _homeScreenState.value = homeScreenState.value?.copy(
-//                            cars = recoveredCars
-//                        )
+                        _homeScreenState.value = homeScreenState.value?.copy(
+                            cars = recoveredCars
+                        )
                     }
 
                 }
 
             })
-    }
-    fun hello(){
-        println("Olá!")
     }
 
 }

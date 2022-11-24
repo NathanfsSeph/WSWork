@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Nathan/Documents/GitHub/WSWork/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/Nathan/Documents/GitHub/WSWork/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/Nathan/Documents/GitHub/WSWork/app/src/main/res/layout/fragment_user.xml" value="0.25" />
+        <entry key="..\:/Users/Nathan/Documents/GitHub/WSWork/app/src/main/res/layout/list_item_car.xml" value="0.365625" />
+        <entry key="..\:/Users/Nathan/Documents/GitHub/WSWork/app/src/main/res/mipmap-anydpi-v26/1.xml" value="0.1575" />
       </map>
     </option>
   </component>

@@ -18,7 +18,7 @@ class WSWRepositoryImpl (private val userDao: UserDao, private val carDao: CarDa
         }
     }
 
-    override suspend fun getAllCars(): List<Car> {
+    override suspend fun getCars(): List<Car> {
         TODO("Not yet implemented")
     }
 }

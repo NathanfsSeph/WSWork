@@ -1,9 +1,5 @@
 package com.nathan.wswork.data.response
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-
-@Parcelize
 data class CarsItemResponse(
     val ano: Int,
     val combustivel: String,
@@ -15,6 +11,4 @@ data class CarsItemResponse(
     val num_portas: Int,
     val timestamp_cadastro: Int,
     val valor_fipe: Double
-) : Parcelable
-
-// É pra ser um response (CarsItemBodyResponse)
+)
