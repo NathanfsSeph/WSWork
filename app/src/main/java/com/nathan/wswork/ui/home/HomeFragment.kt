@@ -9,9 +9,8 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.room.ColumnInfo
-import androidx.room.PrimaryKey
 import com.nathan.wswork.R
+import com.nathan.wswork.data.APIService
 import com.nathan.wswork.data.model.Car
 import com.nathan.wswork.data.model.Lead
 import com.nathan.wswork.databinding.DialogBinding

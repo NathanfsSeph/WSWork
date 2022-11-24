@@ -12,6 +12,6 @@ interface WSWDBService {
     fun getCars(): Call<CarsBodyResponse>
 
     @POST("cars/leads/")
-    fun sendLead(@Body lead: Lead): Call<Lead>
+    fun sendLeads(@Body leads: List<Lead>): Call<List<Lead>>
 
 }

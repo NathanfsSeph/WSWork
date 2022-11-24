@@ -11,5 +11,7 @@ interface WSWRepository {
 
     suspend fun insertLead(lead: Lead)
 
+    suspend fun getLeads() : List<Lead>
+
     suspend fun getCars() : List<Car>
 }
