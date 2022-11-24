@@ -17,5 +17,5 @@ data class User(
     @ColumnInfo(name = "email")
     val email: String,
     @ColumnInfo(name = "address")
-    val address: String,
+    val address: String
 )

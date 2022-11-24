@@ -3,12 +3,12 @@ package com.nathan.wswork.data.database
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
-import com.nathan.wswork.data.model.User
+import com.nathan.wswork.data.model.Car
 
 @Dao
-interface UserDao {
+interface CarDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(user: User)
+    fun insert(car: Car)
 
 }
