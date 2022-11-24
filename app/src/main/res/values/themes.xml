@@ -21,6 +21,7 @@
 
     <style name="ActionBarWidgetTheme" parent="@android:style/Theme.Holo">
         <item name="android:textColorHint">#323232</item>
+        <item name="android:editTextColor">#323232</item>
     </style>
 
 </resources>

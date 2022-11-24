@@ -23,11 +23,11 @@
                     android:id="@+id/item_car_image_view"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
-                    android:scaleType="centerCrop"
+                    android:scaleType="centerInside"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_toyota" />
+                    app:srcCompat="@drawable/car_00" />
 
                 <TextView
                     android:id="@+id/item_car_text_view"

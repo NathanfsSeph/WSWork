@@ -27,6 +27,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCarListener {
     private val viewModel: HomeViewModel by sharedViewModel()
     private val adapter: CarsAdapter by lazy { CarsAdapter(this) }
 
+    private var isLogged : Boolean = false
+
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container,false)
@@ -60,8 +62,14 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCarListener {
                 println("Adapter setupViews : $eita")
             }
 
-            buttonOpenUserLayout.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_userFragment)
+            homeToolbarUserImageView.setOnClickListener{
+                if(!isLogged) {
+                    //Chamar tela de login
+                    findNavController().navigate(R.id.action_homeFragment_to_userFragment)
+                } else {
+                    val nomedousuário = "Nome Do Usuário"
+                    Toast.makeText(requireContext(), "Você está logado como ${nomedousuário}", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

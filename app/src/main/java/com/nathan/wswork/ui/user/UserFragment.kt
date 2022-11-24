@@ -73,6 +73,7 @@ class UserFragment : Fragment(R.layout.fragment_user) {
             firstName = binding.editTextFirstName.text.toString(),
             lastName = binding.editTextLastName.text.toString(),
             phone = binding.editTextPhone.text.toString(),
+            password = binding.editTextPassword.text.toString(),
             email = binding.editTextEmail.text.toString(),
             address = binding.editTextAddress.text.toString()
         )
