@@ -52,19 +52,12 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCarListener {
     }
 
     private fun setupViews() {
-
         with(binding) {
 
             with(recyclerView) {
                 adapter = this@HomeFragment.adapter
                 val eita = adapter?.itemCount
                 println("Adapter setupViews : $eita")
-            }
-
-            button.setOnClickListener {
-
-                Toast.makeText(requireContext(), "Só pra fazer algo", Toast.LENGTH_SHORT).show()
-
             }
 
             buttonOpenUserLayout.setOnClickListener {
@@ -103,9 +96,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCarListener {
         )
 
         showDialog(lead)
-
-        //Depois de confirmar no dialog, cria a lead
-
     }
 
 }
