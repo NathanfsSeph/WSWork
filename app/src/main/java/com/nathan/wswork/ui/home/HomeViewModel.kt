@@ -1,5 +1,6 @@
 package com.nathan.wswork.ui.home
 
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,11 +8,13 @@ import androidx.lifecycle.viewModelScope
 import com.nathan.wswork.data.APIService
 import com.nathan.wswork.data.database.WSWRepository
 import com.nathan.wswork.data.model.Car
+import com.nathan.wswork.data.model.Lead
 import com.nathan.wswork.data.response.CarsBodyResponse
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 
 class HomeViewModel(
     private val repository: WSWRepository
@@ -75,6 +78,18 @@ class HomeViewModel(
                 }
 
             })
+    }
+
+    fun saveLead(lead: Lead){
+
+        try {
+            viewModelScope.launch {
+                repository.insertLead(lead)
+            }
+        } catch (exception : Exception) {
+            println("Something went wrong")
+        }
+
     }
 
 }
