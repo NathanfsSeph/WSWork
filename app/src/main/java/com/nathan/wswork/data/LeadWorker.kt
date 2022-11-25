@@ -19,9 +19,7 @@ class LeadWorker(
     private fun postLeads() {
         try {
             val savedLeads = loadLeads()
-            println("Lead Worker - postLeads Try : ${savedLeads[0].userName} ")
             APIService.service.sendLeads(savedLeads)
-            println("Pra fins acadêmicos")
         } catch (exception : Exception) {
             println("Lead Worker - postLeads Exception : ${exception.message} ")
         }

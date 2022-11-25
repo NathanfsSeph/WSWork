@@ -41,12 +41,15 @@ class UserFragment : Fragment(R.layout.fragment_user) {
     override fun onStart() {
         super.onStart()
 
-        setUpClickListeners()
+        setUpViews()
 
     }
 
-    private fun setUpClickListeners() {
+    private fun setUpViews() {
         with(binding) {
+
+            registerTurnBackImageView.setOnClickListener { activity?.onBackPressed() }
+
             buttonRegister.setOnClickListener {
                 CoroutineScope(Dispatchers.IO).launch {
 

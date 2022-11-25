@@ -7,7 +7,7 @@ import com.nathan.wswork.data.model.User
 interface WSWRepository {
     suspend fun insertUser(user: User)
 
-    suspend fun getUser(userId: Int) : User
+    suspend fun getUser(email: String, password: String) : User
 
     suspend fun insertCar(car : Car)
 

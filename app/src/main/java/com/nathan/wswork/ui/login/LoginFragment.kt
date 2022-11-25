@@ -8,14 +8,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.nathan.wswork.R
+import com.nathan.wswork.data.model.User
 import com.nathan.wswork.databinding.FragmentLoginBinding
-import com.nathan.wswork.ui.user.UserViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import kotlinx.coroutines.withContext as withContext
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private lateinit var binding: FragmentLoginBinding
-    private val viewModel: UserViewModel by sharedViewModel()
+    private val viewModel: LoginViewModel by sharedViewModel()
 
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
@@ -33,9 +37,29 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             loginRegisterTextView.setOnClickListener {
                 findNavController().navigate(R.id.action_loginFragment_to_userFragment)
             }
+            loginConfirmButton.setOnClickListener {
+                var email = loginEmailEditText.text.toString()
+                var password = loginPasswordEditText.text.toString()
+                CoroutineScope(Dispatchers.IO).launch {
+                    var user: User? = viewModel.getUser(email, password)
+                    if(user != null){
+                        isLogged = true
+                        saveLoggedUser(user)
+                    }
+                }
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            }
             loginTurnBackImageView.setOnClickListener {
                 activity?.onBackPressed()
             }
+        }
+    }
+
+    companion object {
+        var isLogged = false
+        var loggedUser: User? = null
+        private fun saveLoggedUser(user: User) {
+            loggedUser = user
         }
     }
 
