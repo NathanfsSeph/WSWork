@@ -1,45 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-
-    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/item_car_material_card_view"
-        android:layout_width="300dp"
-        android:layout_height="400dp"
-        android:layout_marginEnd="32dp"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="6dp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/item_car_material_card_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/item_car_constraint_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/item_car_constraint_layout"
+                android:layout_width="300dp"
+                android:layout_height="300dp">
 
-            <ImageView
-                android:id="@+id/item_car_image_view"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/ic_toyota" />
+                <ImageView
+                    android:id="@+id/item_car_image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:scaleType="centerInside"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/car_00" />
 
-            <TextView
-                android:id="@+id/item_car_text_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:text="Release Date"
-                android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@+id/item_car_image_view" />
+                <TextView
+                    android:id="@+id/item_car_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Release Date"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/item_car_image_view" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </FrameLayout>
 </layout>

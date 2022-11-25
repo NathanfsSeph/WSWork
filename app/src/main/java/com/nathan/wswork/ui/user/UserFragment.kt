@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.nathan.wswork.R
 import com.nathan.wswork.data.database.UserDao
 import com.nathan.wswork.data.database.WSWDatabase
@@ -40,12 +41,15 @@ class UserFragment : Fragment(R.layout.fragment_user) {
     override fun onStart() {
         super.onStart()
 
-        setUpClickListeners()
+        setUpViews()
 
     }
 
-    private fun setUpClickListeners() {
+    private fun setUpViews() {
         with(binding) {
+
+            registerTurnBackImageView.setOnClickListener { activity?.onBackPressed() }
+
             buttonRegister.setOnClickListener {
                 CoroutineScope(Dispatchers.IO).launch {
 
@@ -58,9 +62,9 @@ class UserFragment : Fragment(R.layout.fragment_user) {
                             Toast.LENGTH_SHORT
                         ).show()
 
-                        if(result)
-                            activity?.onBackPressed()
-
+                        if(result) {
+                            findNavController().navigate(R.id.action_userFragment_to_homeFragment)
+                        }
                     }
 
                 }
@@ -73,6 +77,7 @@ class UserFragment : Fragment(R.layout.fragment_user) {
             firstName = binding.editTextFirstName.text.toString(),
             lastName = binding.editTextLastName.text.toString(),
             phone = binding.editTextPhone.text.toString(),
+            password = binding.editTextPassword.text.toString(),
             email = binding.editTextEmail.text.toString(),
             address = binding.editTextAddress.text.toString()
         )

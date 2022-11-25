@@ -17,6 +17,7 @@ import com.nathan.wswork.databinding.DialogBinding
 import com.nathan.wswork.databinding.FragmentHomeBinding
 import com.nathan.wswork.ui.adapter.CarsAdapter
 import com.nathan.wswork.ui.adapter.OnCarListener
+import com.nathan.wswork.ui.login.LoginFragment
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class HomeFragment : Fragment(R.layout.fragment_home), OnCarListener {
@@ -26,6 +27,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCarListener {
 
     private val viewModel: HomeViewModel by sharedViewModel()
     private val adapter: CarsAdapter by lazy { CarsAdapter(this) }
+
+    private var isLogged : Boolean = false
 
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
@@ -43,32 +46,25 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCarListener {
         viewModel.homeScreenState.observe(viewLifecycleOwner) {
             it?.let {
                 adapter.submitList(it.cars)
-                if (adapter.itemCount == 0)
-                    println("Adapter é : ${adapter.itemCount}")
-                else
-                    println("Adapter se liga no bichao ${it.cars[0].marca_nome} ${it.cars[0].nome_modelo}")
             }
         }
     }
 
     private fun setupViews() {
-
         with(binding) {
 
             with(recyclerView) {
                 adapter = this@HomeFragment.adapter
                 val eita = adapter?.itemCount
-                println("Adapter setupViews : $eita")
             }
 
-            button.setOnClickListener {
-
-                Toast.makeText(requireContext(), "Só pra fazer algo", Toast.LENGTH_SHORT).show()
-
-            }
-
-            buttonOpenUserLayout.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_userFragment)
+            homeToolbarUserImageView.setOnClickListener{
+                if(!LoginFragment.isLogged) {
+                    findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
+                } else {
+                    var loggedUser = LoginFragment.loggedUser
+                    Toast.makeText(requireContext(), "Você está logado como ${loggedUser?.firstName} ${loggedUser?.lastName}", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
@@ -95,17 +91,16 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCarListener {
     }
 
     override fun onCarClicked(car: Car) {
-        val lead = Lead (
-            userId = 1,
-            carId = car.id,
-            userName = "userName",
-            userPhone = "userPhone"
-        )
+        val lead = LoginFragment.loggedUser?.let {
+            Lead (
+                userId = it.id,
+                carId = car.id,
+                userName = "${it.firstName} ${it.lastName}",
+                userPhone = it.phone
+            )
+        }
 
-        showDialog(lead)
-
-        //Depois de confirmar no dialog, cria a lead
-
+        lead?.let { showDialog(it) }
     }
 
 }

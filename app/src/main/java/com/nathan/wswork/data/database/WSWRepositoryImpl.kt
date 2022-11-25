@@ -15,6 +15,10 @@ class WSWRepositoryImpl (private val userDao: UserDao, private val carDao: CarDa
         }
     }
 
+    override suspend fun getUser(email: String, password: String): User = withContext(Dispatchers.IO) {
+        return@withContext userDao.get(email, password)
+    }
+
     override suspend fun insertCar(car: Car) {
         withContext(Dispatchers.IO) {
             carDao.insert(car)

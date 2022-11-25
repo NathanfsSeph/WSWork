@@ -16,6 +16,8 @@ data class User(
     var phone: String,
     @ColumnInfo(name = "email")
     val email: String,
+    @ColumnInfo(name = "password")
+    val password: String,
     @ColumnInfo(name = "address")
     val address: String
 )
