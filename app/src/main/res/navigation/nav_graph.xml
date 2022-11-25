@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.nathan.wswork.ui.home.HomeFragment"
+        android:name="com.nathan.wswork.presentation.main.fragments.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/userFragment"
-        android:name="com.nathan.wswork.ui.user.UserFragment"
+        android:name="com.nathan.wswork.presentation.main.fragments.user.UserFragment"
         android:label="fragment_user"
         tools:layout="@layout/fragment_user" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.nathan.wswork.ui.login.LoginFragment"
+        android:name="com.nathan.wswork.presentation.main.fragments.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action

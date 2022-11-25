@@ -3,8 +3,9 @@ package com.nathan.wswork.data
 import android.content.Context
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import com.nathan.wswork.data.database.WSWDatabase
-import com.nathan.wswork.data.model.Lead
+import com.nathan.wswork.data.localdatasource.WSWDatabase
+import com.nathan.wswork.data.remotedatasource.APIService
+import com.nathan.wswork.domain.model.Lead
 
 class LeadWorker(
     private val context: Context,
